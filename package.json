@@ -1,0 +1,59 @@
+{
+  "name": "projekt-billennium-angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel build server",
+    "build": "webpack --config webpack.config.js",
+    "server": "http-server -p 8000 -c -1",
+    "devserver": "webpack-dev-server --progress --colors",
+    "open": "babel-node tools/srcServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BidziS/projekt-billennium-angular.git"
+  },
+  "keywords": [
+    "billennium",
+    "angularjs"
+  ],
+  "author": "Daniel Cudnik, Leszek Kłoczko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BidziS/projekt-billennium-angular/issues"
+  },
+  "homepage": "https://github.com/BidziS/projekt-billennium-angular#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.5",
+    "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
+    "angular-aria": "^1.6.5",
+    "angular-material": "^1.1.4",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.25",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-es2015-modules-commonjs-simple": "^6.7.4",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-es2015-webpack": "^6.4.3",
+    "css-loader": "^0.28.4",
+    "express": "^4.15.3",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
+    "open": "0.0.5",
+    "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-hot-middleware": "^2.18.1"
+  }
+}
