@@ -1,12 +1,28 @@
-<md-header layout="row" ng-mouseleave="hr.visible=true">
-    <h1>Księgarnia</h1>
-    <md-label ng-mouseover="hr.visible=false"><img style="margin:10px 10px 10px 10px; width:50px; height:50px;" src="C:\Users\Admin\projekt-billennium-angular\src\app\img\book-icon.png"></md-label>
-    <div style="width:50%; height:100%">
-    <div ng-hide="hr.visible">
-        <md-button ui-sref="home" style="height:100%">STRONA GŁÓWNA</md-button>
-        <md-button ui-sref="manage" style="height:100%">ZARZĄDZANIE ELEMENTAMI</md-button>
-        <md-button style="height:100%">KONFIGURACJA SYSTEMU</md-button>
+<div layout="row">
+<div layout="column" layout-align="left center">
+    <h3>KSIĘGARNIA</h3>
+</div>
+<div class="lock-size" layout="column" layout-align="left center">
+      <md-fab-speed-dial md-open="header.isOpen" ng-mouseenter="header.isOpen=true" ng-mouseleave="header.isOpen=false" md-direction="right"
+                         class="md-scale" >
+        <md-fab-trigger>
+          <md-button class="md-fab md-warn">    
+               <md-icon>menu</md-icon>
+          </md-button>
+        </md-fab-trigger>
+
+        <md-fab-actions>
+          <md-button ui-sref="home">
+            Strona Główna
+          </md-button>
+          <md-button ui-sref="manage">
+            Zarządzanie Elementami
+          </md-button>
+          <md-button ui-sref="#">
+            Konfiguracja Systemu
+          </md-button>
+        </md-fab-actions>
+      </md-fab-speed-dial>
     </div>
-    <label style="color:white" ng-bind="hr.tekst"/>
-    </div>
-</md-header>
+</div>
+</div>

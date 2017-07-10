@@ -1,25 +1,34 @@
 export default class ManageService{
-    constructor(){ 
-    this.books =[];
-        this.books.push({
-            title: "Tytuł 1",
-            author: "Autor 1",
-            price: "10",
-            publisher: "sowa"
-        });
-
-        this.books.push({
-            title: "Tytuł 2",
-            author: "Autor 3",
-            price: "20",
-            publisher: "krowa"
-        });
-
+    constructor(){
+        this.tabs = [
+            {
+                "category": "authors",
+                "name": "Autorzy"
+            },
+            {
+                "category": "categories",
+                "name": "Kategorie"
+            },
+            {
+                "category": "countries",
+                "name": "Kraje"
+            },
+            {
+                "category": "books",
+                "name": "Książki"
+            },
+            {
+                "category": "storages",
+                "name": "Nośniki"
+            },
+            {
+                "category": "covers",
+                "name": "Okładki"
+            }
+        ];
+    }
+    getTabs(){
+        return this.tabs;
     }
 
-    getBooks(){
-        return this.books;
     }
-    
-}
-

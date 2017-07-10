@@ -1,14 +1,14 @@
 export default class HeaderController{
-    constructor($rootScope, HeaderService){
-        this.$rootScope=$rootScope;
-        this.visible=true;
-        this.headerService = HeaderService;
-        $rootScope.$on('dataChanged', (event, newData) => {
-            this.tekst = newData;
-        });
+    constructor($animate){
+        
+        this.$animate=$animate;
+        this.isOpen = false;
+        console.log(this.isOpen);
+
+        this.$animate.enabled(true);
     }
     
 }
 
-HeaderController.$inject = ['$rootScope','HeaderService'];
+HeaderController.$inject = ['$animate'];
 

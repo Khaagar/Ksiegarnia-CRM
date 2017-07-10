@@ -1,37 +1,17 @@
-html, body {
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+.cover {
+    width:275px; 
+    height:330px; 
+    margin-top:32px;
+    margin-bottom:32px;
 }
 
-md-header{
-    background-color: black;
-    width:100%;
-    color: whitesmoke;
+.no-wrap-text{
+    height:200%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-
-md-footer{
-    background-color: black;
-    width:100%;
-    color:whitesmoke;
-    font-size: 24px;
-    text-align:right;
-    position:absolute;
-    bottom:0;
-
-}
-md-sidenav{
-    min-height: 100%;
-}
-md-list-item > button{
-    width: 100%;
-    text-align: left !important;
-}
-
-md-body{
-    height: 100%;
-    width: 100%;
+.no-wrap-text:hover{
+    text-overflow: clip;
+    white-space: normal;
 }

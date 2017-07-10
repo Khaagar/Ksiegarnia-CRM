@@ -4,5 +4,5 @@ import HeaderService from './headerService';
 module.exports = {
     template: require('./header.html'),
     controller: HeaderController,
-    controllerAs: 'hr'
+    controllerAs: 'header'
 }

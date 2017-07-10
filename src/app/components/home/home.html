@@ -1,4 +1,21 @@
-<div >
-    <h4>Witaj, zaloguj się, żeby uzyskać dostęp do serwisu</h1>
-    <md-button>ZALOGUJ SIĘ</md-button>
-</div>
+<md-content class="md-padding" layout-xs="column" layout-wrap layout="row" ng-cloak>
+    <div flex-xs="100" flex-sm="50" flex-md="33" layout="column" flex="25" ng-repeat="book in home.books">
+        <md-card md-theme="default" >
+            <md-card-title layout="column" layout-align="space-between">
+                <md-card-title-text>
+                    <span class="md-headline no-wrap-text" ng-bind="book.title"></span>
+                    <span class="md-subhead" ng-bind="book.author">Large</span>
+                    <md-divider></md-divider>
+                </md-card-title-text>
+
+                <md-card-title-media layout="row" layout-align="center center">
+                    <img class="cover" ng-src="{{book.cover}}" class="md-card-image" alt="image caption" >
+                </md-card-title-media>
+                <md-divider></md-divider>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="home.showBook($event, book)">Szczegóły</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

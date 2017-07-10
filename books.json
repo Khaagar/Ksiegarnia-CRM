@@ -1,0 +1,42 @@
+{"data": [{
+		"title": "Tytu³ 11",
+		"author": "Autor 1",
+		"ISBN": "isbn1",
+		"category": "dramat",
+		"storageType": "CD",
+		"coverType": "typ",
+		"price": "9,99",
+		"cover": "https://about.canva.com/wp-content/uploads/sites/3/2015/01/creative_bookcover.png"
+	},
+	{
+		"title": "Tytu³ 12",
+		"author": "Autor 1",
+		"ISBN": "isbn2",
+		"category": "komedia",
+		"storageType": "DVD",
+		"coverType": "typ",
+		"price": "99,99",
+		"cover": "https://about.canva.com/wp-content/uploads/sites/3/2015/01/creative_bookcover.png"
+	},
+	{
+		"title": "Tytu³ 21",
+		"author": "Autor 2",
+		"ISBN": "isbn3",
+		"category": "akcja",
+		"storageType": "DVD",
+		"coverType": "typ",
+		"price": "99,99",
+		"cover": "https://about.canva.com/wp-content/uploads/sites/3/2015/01/creative_bookcover.png"
+	},
+	{
+		"title": "Tytu³ 12",
+		"author": "Autor 2",
+		"ISBN": "isbn3",
+		"category": "komedia",
+		"storageType": "DVD",
+		"coverType": "typ",
+		"price": "99,99",
+		"cover": "https://about.canva.com/wp-content/uploads/sites/3/2015/01/creative_bookcover.png"
+	}
+]
+}

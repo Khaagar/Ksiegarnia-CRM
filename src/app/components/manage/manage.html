@@ -1,17 +1,15 @@
-<div >
-    <table>
-        <tr>
-            <th>Tytuł</th>
-            <th>Autor</th>
-            <th>Cena</th>
-            <th>Wydawnictwo</th>
-        </tr>
-        <tr ng-repeat="book in mn.books">
-            <th><span ng-bind="book.title"/></th>
-            <th><span ng-bind="book.author"/></th>
-            <th><span ng-bind="book.price"/></th>
-            <th><span ng-bind="book.publisher"/></th>
-        </tr>
-    </table>
-
-</div>
+<md-content class="md-padding" >
+    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+      <md-tab ng-repeat="tab in manage.tabs"
+              ng-click="manage.getData(tab.category)"
+              ng-disabled="tab.disabled"
+              label="{{tab.name}}">
+        <div class="" style="padding: 25px; text-align: center;">
+            <div ng-repeat="item in manage.data">
+                <h1 ng-bind="item"></h1>
+            </div>
+          <data-ui-view={{tab.category}}></ui-view>
+        </div>
+      </md-tab>
+    </md-tabs>
+  </md-content>
