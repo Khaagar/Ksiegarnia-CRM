@@ -3,13 +3,6 @@ export default class ManageController{
         this.ManageService = ManageService;
         this.tabs = this.ManageService.getTabs();
         this.data = [];
-<<<<<<< HEAD
-        };
-    
-
-    getData(category){
-        this.data = JSON.parse(localStorage.getItem(category));
-=======
         this.columnHeaders = [];
         }
     
@@ -19,7 +12,6 @@ export default class ManageController{
         for (var key in this.data[0]){
             this.columnHeaders.push(key);
         }  
->>>>>>> commit 10.07
     }
 }
 
