@@ -80,12 +80,6 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                     .service('HeaderService',HeaderService)
                     .service('TableService',TableService)
                     .service('ManageService',ManageService)
-<<<<<<< HEAD
-                    .service('BooksService',BooksService)
-                    .service('AuthorsService',AuthorsService)
-                    .service('UpdateService',UpdateService)
-                    
-=======
                     .service('UpdateService',UpdateService)
                         .service('BooksService',BooksService)
                         .service('AuthorsService',AuthorsService)
@@ -93,7 +87,6 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                         .service('CountriesService',CountriesService)
                         .service('StoragesService',StoragesService)
                         .service('CoversService',CoversService)
->>>>>>> commit 10.07
                     .run(function(UpdateService){
                         if (localStorage.length==0){
                             UpdateService.setData();
