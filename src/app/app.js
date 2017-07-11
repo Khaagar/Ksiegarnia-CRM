@@ -24,11 +24,6 @@ import HomeService from './components/home/homeService';
 import HeaderService from './components/common/header/headerService';
 import TableService from './components/table/tableService';
 import ManageService from './components/manage/manageService';
-<<<<<<< HEAD
-import BooksService from './components/services/booksService';
-import AuthorsService from './components/services/authorsService'
-import UpdateService from './components/services/updateService'
-=======
 import UpdateService from './components/services/updateService';
     import BooksService from './components/services/booksService';
     import AuthorsService from './components/services/authorsService'
@@ -36,7 +31,6 @@ import UpdateService from './components/services/updateService';
     import CountriesService from './components/services/countriesService';
     import StoragesService from './components/services/storagesService';
     import CoversService from './components/services/coversService';
->>>>>>> commit 10.07
 
 
 export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
