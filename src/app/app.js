@@ -24,9 +24,19 @@ import HomeService from './components/home/homeService';
 import HeaderService from './components/common/header/headerService';
 import TableService from './components/table/tableService';
 import ManageService from './components/manage/manageService';
+<<<<<<< HEAD
 import BooksService from './components/services/booksService';
 import AuthorsService from './components/services/authorsService'
 import UpdateService from './components/services/updateService'
+=======
+import UpdateService from './components/services/updateService';
+    import BooksService from './components/services/booksService';
+    import AuthorsService from './components/services/authorsService'
+    import CategoriesService from './components/services/categoriesService';
+    import CountriesService from './components/services/countriesService';
+    import StoragesService from './components/services/storagesService';
+    import CoversService from './components/services/coversService';
+>>>>>>> commit 10.07
 
 
 export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
@@ -70,10 +80,20 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                     .service('HeaderService',HeaderService)
                     .service('TableService',TableService)
                     .service('ManageService',ManageService)
+<<<<<<< HEAD
                     .service('BooksService',BooksService)
                     .service('AuthorsService',AuthorsService)
                     .service('UpdateService',UpdateService)
                     
+=======
+                    .service('UpdateService',UpdateService)
+                        .service('BooksService',BooksService)
+                        .service('AuthorsService',AuthorsService)
+                        .service('CategoriesService',CategoriesService)
+                        .service('CountriesService',CountriesService)
+                        .service('StoragesService',StoragesService)
+                        .service('CoversService',CoversService)
+>>>>>>> commit 10.07
                     .run(function(UpdateService){
                         if (localStorage.length==0){
                             UpdateService.setData();

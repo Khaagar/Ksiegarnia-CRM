@@ -105,7 +105,11 @@ export default class BooksService{
     }
 
     setBooks(){
+<<<<<<< HEAD
             localStorage.setItem("books",JSON.stringify(this.books));
+=======
+            localStorage.setItem("books",angular.toJson(this.books));
+>>>>>>> commit 10.07
     
     }        
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .cover {
     width:275px; 
     height:330px; 
@@ -10,6 +11,45 @@
     white-space: nowrap;
     overflow: hidden;
 }
+=======
+table, th, td {
+    padding-top:30px;
+    border-bottom: 1px solid rgba(158,158,158,0.2);;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+.table-header {
+    background-color: black;
+    color:whitesmoke;
+}
+
+.table-row:hover {
+    background-color: rgba(158,158,158,0.2);
+}
+
+.image-over-text>div{
+    display:none;
+}
+.image-over-text:hover>div{
+    display:block;
+}
+
+.cover {
+    width:275px; 
+    height:330px; 
+    margin-top:32px;
+    margin-bottom:32px;
+}
+
+.no-wrap-text{
+    height:200%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+>>>>>>> commit 10.07
 
 .no-wrap-text:hover{
     text-overflow: clip;

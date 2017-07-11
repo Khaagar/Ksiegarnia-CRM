@@ -1,15 +1,38 @@
+<<<<<<< HEAD
 <md-content class="md-padding" >
     <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
+=======
+<md-content class="md-padding">
+    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect md-dynamic-height>
+>>>>>>> commit 10.07
       <md-tab ng-repeat="tab in manage.tabs"
               ng-click="manage.getData(tab.category)"
               ng-disabled="tab.disabled"
               label="{{tab.name}}">
+<<<<<<< HEAD
         <div class="" style="padding: 25px; text-align: center;">
             <div ng-repeat="item in manage.data">
                 <h1 ng-bind="item"></h1>
             </div>
           <data-ui-view={{tab.category}}></ui-view>
         </div>
+=======
+      <md-content layout="row" layout-align="center start" style="padding-top:30px">
+       <table>
+          <tr class="table-header">
+            <th ng-repeat="key in manage.columnHeaders"> <label ng-if="key!='id'" ng-bind="key" ></label></th>
+            <th colspan="2"></th>
+          </tr>
+          <tr class="table-row" ng-repeat="item in manage.data">
+            <td ng-repeat="key in manage.columnHeaders">
+              <label ng-if="key!='id' && key!='cover'" ng-bind="item.{{key}}"></label>
+              <label ng-if="key=='cover'" class="image-over-text">Okładka<div><img class="cover" src="{{item.cover}}" /></div></label></td>
+            <td><div layout="column" layout-align="center center"> <md-button class="md-raised md-primary" style="width:100%">Edytuj <md-icon>edit</md-icon></md-button>
+            <md-button class="md-raised md-warn" style="width:100%" ng-click="manage.deleteItem(item,tab.category)">Usuń <md-icon>delete</md-icon></md-button></div></td>
+          </tr>
+       </table>
+      </md-content>
+>>>>>>> commit 10.07
       </md-tab>
     </md-tabs>
   </md-content>

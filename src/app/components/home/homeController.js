@@ -6,7 +6,10 @@ export default class HomeController{
     }
     showBook(ev, book){
         this.book=book;
+<<<<<<< HEAD
         console.log(this.book);
+=======
+>>>>>>> commit 10.07
             this.$mdDialog.show({
                 template: require('./editDialog/editDialog.html'),
                 controller: 'editDialogController',
@@ -19,11 +22,18 @@ export default class HomeController{
             })
         }
     cancel(){
+<<<<<<< HEAD
         console.log("funkcja cancel")
+=======
+>>>>>>> commit 10.07
         this.$mdDialog.cancel();
     }
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> commit 10.07
 HomeController.$inject = ['UpdateService','$mdDialog'];
 
