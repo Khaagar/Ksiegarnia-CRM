@@ -1,22 +1,9 @@
-<<<<<<< HEAD
-<md-content class="md-padding" >
-    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect>
-=======
 <md-content class="md-padding">
     <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect md-dynamic-height>
->>>>>>> commit 10.07
       <md-tab ng-repeat="tab in manage.tabs"
               ng-click="manage.getData(tab.category)"
               ng-disabled="tab.disabled"
               label="{{tab.name}}">
-<<<<<<< HEAD
-        <div class="" style="padding: 25px; text-align: center;">
-            <div ng-repeat="item in manage.data">
-                <h1 ng-bind="item"></h1>
-            </div>
-          <data-ui-view={{tab.category}}></ui-view>
-        </div>
-=======
       <md-content layout="row" layout-align="center start" style="padding-top:30px">
        <table>
           <tr class="table-header">
@@ -32,7 +19,6 @@
           </tr>
        </table>
       </md-content>
->>>>>>> commit 10.07
       </md-tab>
     </md-tabs>
   </md-content>

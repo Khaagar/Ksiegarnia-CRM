@@ -21,11 +21,8 @@ export default class BooksService{
     }
 
     setAuthors(){
-<<<<<<< HEAD
             localStorage.setItem("authors",JSON.stringify(this.authors));
-=======
             localStorage.setItem("authors",angular.toJson(this.authors));
->>>>>>> commit 10.07
         
 
     }        
