@@ -3,23 +3,23 @@ export default class StoragesService{
     constructor(){
         this.storages = [
             {
-                "id": "0",
+                "id": 0,
                 "name": "CD"
             },
             {
-                "id": "1",
+                "id": 1,
                 "name": "DVD"
             },
             {
-                "id": "2",
+                "id": 2,
                 "name": "Blu-Ray"
             },
             {
-                "id": "3",
+                "id": 3,
                 "name": "Pendrive"
             },
             {
-                "id": "4",
+                "id": 4,
                 "name": "mp3"
             }
         ];

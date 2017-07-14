@@ -1,36 +1,28 @@
 export default class CoversService{
     
     constructor(){
-        this.covers = [
-            {
-                "id": "0",
-                "name":"cover 0"
-            },
-            {
-                "id": "1",
-                "name":"cover 1"
-            },
-            {
-                "id": "2",
-                "name":"cover 2"
-            },
-            {
-                "id": "3",
-                "name":"cover 3"
-            },
-            {
-                "id": "4",
-                "name":"cover 4"
-            },
-            {
-                "id": "5",
-                "name":"cover 5"
-            },
-            {
-                "id": "6",
-                "name":"cover 6"
-            }
-        ];
+        this.covers = [{
+            "id":0,
+            "name":"typ0"
+        },
+        {
+            "id":1,
+            "name":"typ1"
+        },
+        {
+            "id":2,
+            "name":"typ2"
+        },
+        {
+            "id":3,
+            "name":"typ3"
+        },
+        {
+            "id":4,
+            "name":"typ4"
+        }];
+
+        
     }
 
     setCovers(){
@@ -39,4 +31,3 @@ export default class CoversService{
     }        
 
     }
-

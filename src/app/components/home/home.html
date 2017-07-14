@@ -14,8 +14,9 @@
                 <md-divider></md-divider>
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="home.showBook($event, book)">Szczegóły</md-button>
+                <md-button ng-click="home.bookDetails($event, book)"><span ng-init="name='details'" ng-bind="home.translate([name])"></md-button>
             </md-card-actions>
         </md-card>
     </div>
+    
 </md-content>

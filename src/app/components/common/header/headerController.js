@@ -1,16 +1,96 @@
 export default class HeaderController{
-    constructor($animate){
-        
+    constructor($animate,$rootScope,TranslateService,LoginService,$interval){
+        let vm=this;
         this.$animate=$animate;
-        this.isOpen = false;
-<<<<<<< HEAD
-        console.log(this.isOpen);
-
-=======
->>>>>>> commit 10.07
+        this.$rootScope=$rootScope;
+        this.TranslateService = TranslateService;
+        this.LoginService = LoginService;
         this.$animate.enabled(true);
+
+        this.username;
+        this.password;
+        this.login = {
+            isOpen: false,
+            user: "Guest"
+        };
+        this.menu = {
+            isOpen: false
+        };
+
+        this.tick();
+        $interval(function(){vm.tick();},1000);
+
     }
+
+    tick(){
+            this.clock=new Date();
+        }
+
+    changeLanguage(language){
+        this.$rootScope.language=language;
+    }
+
+    translate(word){
+        return this.TranslateService.translate([word])[0]['value'];
+    }
+    
+    showMenuPanel(){
+        Object.defineProperty(this.menu,'isOpen',{
+            get: function(){
+                return true;
+            },
+            set: function(){
+            }
+        });
+    }
+
+    hideMenuPanel(){
+        Object.defineProperty(this.menu, 'isOpen',{
+            get: function(){
+                return false;
+            },
+            set: function(){
+            }
+        });
+    }
+
+    showLoginPanel(){
+        Object.defineProperty(this.login,'isOpen',{
+            get: function(){
+                return true;
+            },
+            set: function(){
+            }
+        });
+    }
+
+    hideLoginPanel(){
+        Object.defineProperty(this.login, 'isOpen',{
+            get: function(){
+                return false;
+            },
+            set: function(){
+            }
+        });
+    }
+
+    authorizeUser(){
+        this.LoginService.authorizeUser(this.username,this.password);
+        this.hideLoginPanel();
+        this.username='';
+        this.password='';
+    }
+
+    logout(){
+        this.LoginService.logout();
+        this.hideLoginPanel();
+    }
+
+    getUser(){
+        return this.LoginService.getUser();
+    }
+    
 }
 
-HeaderController.$inject = ['$animate'];
+HeaderController.$inject = ['$animate','$rootScope','TranslateService','LoginService','$interval'];
 

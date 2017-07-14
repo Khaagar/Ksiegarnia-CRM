@@ -8,7 +8,8 @@ import '../../node_modules/angular-material/angular-material.css';
 import './style.css';
 
 //CONTROLLERS
-import EditDialogController from './components/home/editDialog/editDialogController'
+import DetailsDialogController from './components/home/detailsDialog/detailsDialogController';
+import EditDialogController from './components/manage/editDialog/editDialogController';
 
 
 //COMPONENTS
@@ -31,13 +32,15 @@ import UpdateService from './components/services/updateService';
     import CountriesService from './components/services/countriesService';
     import StoragesService from './components/services/storagesService';
     import CoversService from './components/services/coversService';
+import TranslateService from './components/services/translateService';
+import LoginService from './components/services/loginService';
 
 
 export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
 
 .config(function($stateProvider, $urlRouterProvider) {
      
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home');
     
     $stateProvider
     .state('home', {
@@ -47,22 +50,13 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
     .state('manage',{
         url: '/manage',
         component: 'myManage'
-    })
-    .state('manage.authors',{
-        url: '/authors',
-        component: 'manageAuthorComponent'
-    })    
-    .state('manage.books',{
-        url: '/books',
-        component: 'manageBooksComponent'
-    })
-    
-    ;
+    });
 }).config(function($mdIconProvider) {
   $mdIconProvider
     .defaultIconSet('./icons/mdi.svg');
 })
-                    .controller('editDialogController', EditDialogController)
+                    .controller('detailsDialogController', DetailsDialogController)
+                    .controller('editDialogController',EditDialogController)
                     
                     .component('myHeader', HeaderComponent)
                     .component('myHome', HomeComponent)
@@ -81,9 +75,24 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                         .service('CountriesService',CountriesService)
                         .service('StoragesService',StoragesService)
                         .service('CoversService',CoversService)
-                    .run(function(UpdateService){
+                    .service('TranslateService',TranslateService)
+                    .service('LoginService',LoginService)
+                    .run(function(UpdateService,$rootScope){
+
+                        if ($rootScope.language==undefined){
+                            $rootScope.language="PL";
+                            $rootScope.currentUser={
+                                "username":"Guest",
+                                "isLogged":false
+                            }
+                        }
+                        
                         if (localStorage.length==0){
                             UpdateService.setData();
+                            localStorage.setItem("loggedUser",angular.toJson({
+                                "username":"Guest",
+                                "isLogged":false
+                            }))
                         }
                     });
 

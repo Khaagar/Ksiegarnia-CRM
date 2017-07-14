@@ -1,24 +1,45 @@
-<md-content class="md-padding">
-    <md-tabs md-selected="selectedIndex" md-border-bottom md-autoselect md-dynamic-height>
-      <md-tab ng-repeat="tab in manage.tabs"
-              ng-click="manage.getData(tab.category)"
-              ng-disabled="tab.disabled"
-              label="{{tab.name}}">
-      <md-content layout="row" layout-align="center start" style="padding-top:30px">
-       <table>
-          <tr class="table-header">
-            <th ng-repeat="key in manage.columnHeaders"> <label ng-if="key!='id'" ng-bind="key" ></label></th>
-            <th colspan="2"></th>
-          </tr>
-          <tr class="table-row" ng-repeat="item in manage.data">
-            <td ng-repeat="key in manage.columnHeaders">
-              <label ng-if="key!='id' && key!='cover'" ng-bind="item.{{key}}"></label>
-              <label ng-if="key=='cover'" class="image-over-text">Okładka<div><img class="cover" src="{{item.cover}}" /></div></label></td>
-            <td><div layout="column" layout-align="center center"> <md-button class="md-raised md-primary" style="width:100%">Edytuj <md-icon>edit</md-icon></md-button>
-            <md-button class="md-raised md-warn" style="width:100%" ng-click="manage.deleteItem(item,tab.category)">Usuń <md-icon>delete</md-icon></md-button></div></td>
-          </tr>
-       </table>
-      </md-content>
+<div layout="row">
+
+  <md-content class="md-padding" flex="90">
+
+    <md-tabs md-selected="selectedIndex" md-border-top md-autoselect md-dynamic-height>
+
+      <md-tab ng-repeat="tab in manage.tabs" ng-click="manage.getData(tab['name'])" ng-disabled="tab.disabled" label="{{manage.translate(tab['name'])}}"
+        layout="column">
+        <md-content layout="row" flex="50" layout-align="center  center" flex>
+          <md-button class="md-fab md-primary" ng-click="manage.editDialog($event,-1,manage.columnHeaders,tab['name'])" ng-disabled="manage.checkLoggedUser()">
+            <md-icon>add</md-icon>
+          </md-button>
+        </md-content>
+        <md-content layout="row" layout-align="center start" style="padding-top:30px">
+          <table>
+            <tr class="table-header">
+              <th ng-repeat="key in manage.columnHeaders"> <span ng-if="key['name']!='id'" ng-bind="manage.translate(key['name'])"></span></th>
+              <th colspan="2"></th>
+            </tr>
+            <tr class="table-row" ng-repeat="item in manage.data">
+              <td ng-repeat="key in manage.columnHeaders">
+                <span ng-if="key['name']!='id' && key['name']!='cover'" ng-bind="item[key['name']]"></span>
+                <span ng-if="key['name']=='cover'" class="image-over-text">Okładka<div><img class="cover" src="{{item.cover}}" /></div></span></td>
+              <td>
+                <div layout="column" layout-align="center end">
+                  <md-button class="md-raised md-primary table-button" ng-click="manage.editDialog($event,$index,manage.columnHeaders,tab['name'])" ng-disabled="manage.checkLoggedUser()">
+                    <span ng-init="name='edit'" ng-bind="manage.translate([name])">
+                    </span>
+                    <md-icon>edit</md-icon>
+                  </md-button>
+                  <md-button class="md-raised md-warn table-button" ng-click="manage.deleteItem($index,tab['name'])" ng-disabled="manage.checkLoggedUser()">
+                    <span ng-init="name='delete'" ng-bind="manage.translate([name])"></span>
+                    <md-icon>delete</md-icon>
+                  </md-button>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </md-content>
       </md-tab>
     </md-tabs>
+
   </md-content>
+
+</div>

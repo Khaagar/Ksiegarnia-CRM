@@ -2,28 +2,22 @@ export default class ManageService{
     constructor(){
         this.tabs = [
             {
-                "category": "authors",
-                "name": "Autorzy"
+                "name": "authors"
             },
             {
-                "category": "categories",
-                "name": "Kategorie"
+                "name": "categories"
             },
             {
-                "category": "countries",
-                "name": "Kraje"
+                "name": "countries"
             },
             {
-                "category": "books",
-                "name": "Książki"
+                "name": "books"
             },
             {
-                "category": "storages",
-                "name": "Nośniki"
+                "name": "storages"
             },
             {
-                "category": "covers",
-                "name": "Okładki"
+                "name": "covers"
             }
         ];
     }

@@ -1,39 +1,40 @@
 export default class HomeController{
     
-    constructor(UpdateService,$mdDialog){
+    constructor(UpdateService,$mdDialog,TranslateService,$rootScope){
         this.$mdDialog=$mdDialog;
-        this.books = JSON.parse(localStorage.getItem("books"));
+        this.UpdateService = UpdateService;
+        this.TranslateService = TranslateService;
+        this.$rootScope = $rootScope;
+        this.books = [];
+        this.columns = [];
+        this.getData("books");
     }
-    showBook(ev, book){
-        this.book=book;
-<<<<<<< HEAD
-        console.log(this.book);
-=======
->>>>>>> commit 10.07
+    bookDetails(ev, book){
+        
             this.$mdDialog.show({
-                template: require('./editDialog/editDialog.html'),
-                controller: 'editDialogController',
-                controllerAs: 'edit',
+                template: require('./detailsDialog/detailsDialog.html'),
+                controller: 'detailsDialogController',
+                controllerAs: 'details',
                 parent: angular.element(document.body),
                 targetEvent: ev,
-                locals: {book: this.book},
+                locals: {book: book, columns: this.columns},
                 clickOutsideToClose:true,
                 
             })
         }
     cancel(){
-<<<<<<< HEAD
-        console.log("funkcja cancel")
-=======
->>>>>>> commit 10.07
         this.$mdDialog.cancel();
     }
+    
+    getData(category){
+
+        this.books=this.UpdateService.getData(category)['data'];
+        this.columns=this.UpdateService.getData(category)['columns'];
+    }
+    translate(word){
+        return this.TranslateService.translate([word])[0]['value'];
     }
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> commit 10.07
-HomeController.$inject = ['UpdateService','$mdDialog'];
+}
+HomeController.$inject = ['UpdateService','$mdDialog','TranslateService','$rootScope'];
 

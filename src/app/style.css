@@ -1,21 +1,8 @@
-<<<<<<< HEAD
-.cover {
-    width:275px; 
-    height:330px; 
-    margin-top:32px;
-    margin-bottom:32px;
-}
-
-.no-wrap-text{
-    height:200%;
-    white-space: nowrap;
-    overflow: hidden;
-}
-=======
 table, th, td {
     padding-top:30px;
     border-bottom: 1px solid rgba(158,158,158,0.2);;
     border-collapse: collapse;
+    min-width:50%;
 }
 th, td {
     padding: 5px;
@@ -35,6 +22,8 @@ th, td {
 }
 .image-over-text:hover>div{
     display:block;
+    position: fixed;
+    z-index:9999;
 }
 
 .cover {
@@ -45,13 +34,29 @@ th, td {
 }
 
 .no-wrap-text{
-    height:200%;
-    white-space: nowrap;
-    overflow: hidden;
-}
->>>>>>> commit 10.07
 
-.no-wrap-text:hover{
-    text-overflow: clip;
-    white-space: normal;
+    height: 70px;
+}
+
+
+
+.language-button{
+    padding-right:40px;
+}
+
+.table-button{
+    width:100px;
+}
+
+.user-out{
+    text-transform: uppercase;
+    color: orangered;
+
+}
+.user-in{
+    text-transform: uppercase;
+}
+
+.login-input{
+    margin-top:52px;
 }

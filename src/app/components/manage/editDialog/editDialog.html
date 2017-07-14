@@ -1,0 +1,35 @@
+<md-dialog aria-label="Edit" style="min-width:25%">
+  <form ng-submit="edit.submit(edit.tempItem)">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 ng-if="edit.id!=-1" ng-init="name='edit'" ng-bind="edit.translate(name)"></h2>
+        <h2 ng-if="edit.id==-1" ng-init="name='add'" ng-bind="edit.translate(name)"></h2>
+
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="edit.cancel()">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content layout="column">
+      <div layout="column" flex="50" layout-padding layout-wrap layout-fill style="padding-bottom: 32px; padding-top: 32px" ng-cloak>
+        <md-input-container ng-if="key['name']!='id'" ng-repeat="key in edit.columnHeaders">
+          <label ng-bind="edit.translate(key['name'])"></label>
+          <input type="text" ng-if="key['name']!='price'" ng-model="edit.tempItem[key['name']]" pattern=".{1,255}" required oninvalid="this.setCustomValidity('Wprowadź od 1 do 255 znaków.')"
+            oninput="setCustomValidity('')">
+          <input type="number" ng-if="key['name']=='price'" ng-model="edit.tempItem[key['name']]" min="0" max="999" required>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="edit.cancel()" style="margin-left:17px;">
+        <span ng-init="name='cancel'" ng-bind="edit.translate(name)"></span>
+      </md-button>
+      <span flex></span>
+      <md-button type="submit" style="margin-right:17px;">
+        <span ng-init="name='ok'" ng-bind="edit.translate(name)"></span>
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
