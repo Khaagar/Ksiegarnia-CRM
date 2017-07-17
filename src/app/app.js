@@ -1,7 +1,7 @@
 import angular from 'angular';
 import ngMaterial from 'angular-material';
 import LocalStorageModule from 'angular-local-storage';
-import uirouter from 'angular-ui-router';
+import uirouter from '@uirouter/angularjs';
 
 
 import '../../node_modules/angular-material/angular-material.css';
@@ -14,7 +14,6 @@ import EditDialogController from './components/manage/editDialog/editDialogContr
 
 //COMPONENTS
 import HeaderComponent from './components/common/header/headerComponent';
-import FooterComponent from './components/common/footer/footerComponent';
 import HomeComponent from './components/home/homeComponent';
 import TableComponent from './components/table/tableComponent';
 import ManageComponent from './components/manage/manageComponent';
@@ -24,7 +23,7 @@ import ManageComponent from './components/manage/manageComponent';
 import HomeService from './components/home/homeService';
 import HeaderService from './components/common/header/headerService';
 import TableService from './components/table/tableService';
-import ManageService from './components/manage/manageService';
+import TabsService from './components/services/tabsService';
 import UpdateService from './components/services/updateService';
     import BooksService from './components/services/booksService';
     import AuthorsService from './components/services/authorsService'
@@ -50,6 +49,8 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
     .state('manage',{
         url: '/manage',
         component: 'myManage'
+        
+
     });
 }).config(function($mdIconProvider) {
   $mdIconProvider
@@ -60,14 +61,13 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                     
                     .component('myHeader', HeaderComponent)
                     .component('myHome', HomeComponent)
-                    .component('myFooter', FooterComponent)
                     .component('myTable', TableComponent)
                     .component('myManage',ManageComponent)
 
                     .service('HomeService',HomeService)
                     .service('HeaderService',HeaderService)
                     .service('TableService',TableService)
-                    .service('ManageService',ManageService)
+                    .service('TabsService',TabsService)
                     .service('UpdateService',UpdateService)
                         .service('BooksService',BooksService)
                         .service('AuthorsService',AuthorsService)
@@ -77,25 +77,28 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                         .service('CoversService',CoversService)
                     .service('TranslateService',TranslateService)
                     .service('LoginService',LoginService)
-                    .run(function(UpdateService,$rootScope){
+                    .run(function(UpdateService,$rootScope,$transitions){
+                        
+                        $transitions.onStart( { to: 'manage' }, function(trans) {
+                            var myAuthService = trans.injector().get('LoginService');
+                            return !myAuthService.checkLoggedUser();
+                        });
+
+                        $rootScope.loading = false;
+
 
                         if ($rootScope.language==undefined){
                             $rootScope.language="PL";
-                            $rootScope.currentUser={
-                                "username":"Guest",
-                                "isLogged":false
-                            }
                         }
                         
                         if (localStorage.length==0){
                             UpdateService.setData();
                             localStorage.setItem("loggedUser",angular.toJson({
-                                "username":"Guest",
+                                "username":"guest",
                                 "isLogged":false
                             }))
                         }
                     });
-
 
 
 

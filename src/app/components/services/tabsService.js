@@ -1,4 +1,4 @@
-export default class ManageService{
+export default class TabsService{
     constructor(){
         this.tabs = [
             {
@@ -21,6 +21,7 @@ export default class ManageService{
             }
         ];
     }
+
     getTabs(){
         return this.tabs;
     }

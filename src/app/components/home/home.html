@@ -1,4 +1,8 @@
-<md-content class="md-padding" layout-xs="column" layout-wrap layout="row" ng-cloak>
+<md-content layout="row" layout-sm="column" layout-align="space-around center" ng-if="home.$rootScope.loading" class="indicator">
+    <md-progress-circular  md-mode="indeterminate" md-diameter="96"></md-progress-circular>
+</md-content>
+
+<md-content ng-if="!home.$rootScope.loading" class="md-padding" layout-xs="column" layout-wrap layout="row" ng-cloak>
     <div flex-xs="100" flex-sm="50" flex-md="33" layout="column" flex="25" ng-repeat="book in home.books">
         <md-card md-theme="default" >
             <md-card-title layout="column" layout-align="space-between">
@@ -7,7 +11,6 @@
                     <span class="md-subhead" ng-bind="book.author">Large</span>
                     <md-divider></md-divider>
                 </md-card-title-text>
-
                 <md-card-title-media layout="row" layout-align="center center">
                     <img class="cover" ng-src="{{book.cover}}" class="md-card-image" alt="image caption" >
                 </md-card-title-media>
@@ -18,5 +21,4 @@
             </md-card-actions>
         </md-card>
     </div>
-    
 </md-content>

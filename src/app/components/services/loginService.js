@@ -1,7 +1,9 @@
 export default class LoginService{
     
-    constructor($rootScope){
-        this.$rootScope = $rootScope;
+    constructor($mdToast, TranslateService, $state){
+        this.$mdToast = $mdToast;
+        this.TranslateService = TranslateService;
+        this.$state = $state;
         this.users = [
             {
                 "id": 0, 
@@ -29,14 +31,16 @@ export default class LoginService{
             if (login===this.users[i]['username']){
                 if (password===this.users[i]['password']){
                     localStorage.setItem("loggedUser",angular.toJson({"username":login,"isLogged":true}))
-                    return 'zalogowano pomyślnie';
-                } else return 'błędne hasło';
+                    return this.showLoginInfo(this.translate(['login-success']));
+                } else return this.showLoginInfo(this.translate(['password-error']));
             }
-        } return 'nie znaleziono użytkownika';
+        } return this.showLoginInfo(this.translate(['user-error']));
     }       
 
     logout(){
-        localStorage.setItem("loggedUser",angular.toJson({"username":"Guest","isLogged":false}))
+        this.showLoginInfo(this.translate(['logout-success']));
+        this.$state.go('home');
+        localStorage.setItem("loggedUser",angular.toJson({"username":"guest","isLogged":false}))
     } 
 
     checkLoggedUser(){
@@ -44,9 +48,20 @@ export default class LoginService{
     }
 
     getUser(){
-       
         return JSON.parse(localStorage.getItem("loggedUser"))['username'];
     }
 
+    showLoginInfo(message){
+    this.$mdToast.show(
+        this.$mdToast.simple()
+            .textContent(message)
+            .position('top center')
+            .hideDelay(3000)
+        );
     }
-LoginService.$inject = ['$rootScope'];
+    translate(word){
+        return this.TranslateService.translate([word])[0]['value'];
+    }
+}
+
+LoginService.$inject = ['$mdToast', 'TranslateService', '$state'];

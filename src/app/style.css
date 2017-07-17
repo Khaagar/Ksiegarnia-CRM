@@ -9,7 +9,7 @@ th, td {
     text-align: left;
 }
 .table-header {
-    background-color: black;
+    background-color: orangered;
     color:whitesmoke;
 }
 
@@ -53,10 +53,24 @@ th, td {
     color: orangered;
 
 }
-.user-in{
-    text-transform: uppercase;
-}
+
 
 .login-input{
     margin-top:52px;
+}
+
+md-toast.md-center {
+left: 50%;
+transform: translate3d(-50%, 0, 0);
+}
+
+.indicator{
+    height:400px;
+}
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
 }

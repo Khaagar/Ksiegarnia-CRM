@@ -4,8 +4,6 @@ export default class TranslateService {
         this.$rootScope = $rootScope;
         this.translatedWords = [];
         this.vocabulary = [
-        
-        //MANAGE CATEGORIES
             {
                 "name": "id",
                 "PL": "ID",
@@ -71,45 +69,42 @@ export default class TranslateService {
                 "PL":"Zamknij",
                 "EN":"Close"
             },
-            
-            //MENU
-
-        {
-            "name": "home",
-            "PL":"Strona główna",
-            "EN":"Main page"
-        },
-        {
-            "name":"manage",
-            "PL":"Zarządzanie elementami",
-            "EN":"Manage items"
-        },
-        {
-            "name":"#",
-            "PL":"Konfiguracja systemu",
-            "EN":"System configuration"
-        },
-        {
-            "name":"bookstore",
-            "PL": "KSIĘGARNIA",
-            "EN": "BOOKSTORE"
-        },
-        {
-            "name":"details",
-            "PL":"Szczegóły",
-            "EN":"Details"
-        },
-        {
-            "name":"edit",
-            "PL":"Edytuj",
-            "EN":"Edit"
-        },
-        {
-            "name":"delete",
-            "PL":"Usuń",
-            "EN":"Delete"
-        },
-        {
+            {
+                "name": "home",
+                "PL":"Strona główna",
+                "EN":"Main page"
+            },
+            {
+                "name":"manage",
+                "PL":"Zarządzanie elementami",
+                "EN":"Manage items"
+            },
+            {
+                "name":"#",
+                "PL":"Konfiguracja systemu",
+                "EN":"System configuration"
+            },
+            {
+                "name":"bookstore",
+                "PL": "KSIĘGARNIA",
+                "EN": "BOOKSTORE"
+            },
+            {
+                "name":"details",
+                "PL":"Szczegóły",
+                "EN":"Details"
+            },
+            {
+                "name":"edit",
+                "PL":"Edytuj",
+                "EN":"Edit"
+            },
+            {
+                "name":"delete",
+                "PL":"Usuń",
+                "EN":"Delete"
+            },
+            {
                 "name": "authors",
                 "PL": "Autorzy",
                 "EN": "Authors"
@@ -168,6 +163,36 @@ export default class TranslateService {
                 "name":"logout",
                 "PL":"Wyloguj",
                 "EN":"Logout"
+            },
+            {
+                "name":"login-success",
+                "PL":"Zalogowano pomyślnie!",
+                "EN": "Successfuly logged!"
+            },
+            {
+                "name":"password-error",
+                "PL":"Błędne hasło! Spróbuj jeszcze raz.",
+                "EN":"Wrong password! Try again."
+            },
+            {
+                "name":"user-error",
+                "PL":"Nie znaleziono użytkownika.",
+                "EN":"User not found."
+            },
+            {
+                "name":"logout-success",
+                "PL":"Wylogowano pomyślnie.",
+                "EN":"Logout success"
+            },
+            {
+                "name":"greeting",
+                "PL":"Witaj",
+                "EN":"Hello"
+            },
+            {
+                "name":"guest",
+                "PL":"Gość",
+                "EN":"Guest"
             }
         ];
     }

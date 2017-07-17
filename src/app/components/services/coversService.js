@@ -21,13 +21,10 @@ export default class CoversService{
             "id":4,
             "name":"typ4"
         }];
-
-        
     }
 
     setCovers(){
             localStorage.setItem("covers",angular.toJson(this.covers));
-    
     }        
 
     }

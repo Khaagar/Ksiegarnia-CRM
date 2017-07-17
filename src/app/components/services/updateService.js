@@ -1,7 +1,6 @@
 export default class UpdateService{
     
     constructor(AuthorsService,BooksService,CategoriesService,CountriesService,CoversService,StoragesService,TranslateService){
-
         this.AuthorsService = AuthorsService;
         this.BooksService = BooksService;
         this.CategoriesService = CategoriesService;
@@ -15,6 +14,7 @@ export default class UpdateService{
     }
 
     getData(category){
+
         this.data = JSON.parse(localStorage.getItem(category));
         this.columnHeaders = [];
         for (var key in this.data[0]){
@@ -22,6 +22,9 @@ export default class UpdateService{
         }  
         this.columnHeaders=this.TranslateService.translate(this.columnHeaders);
         return {"data": this.data, "columns": this.columnHeaders};
+
+        
+
     }
 
     setData(){

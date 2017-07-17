@@ -32,7 +32,6 @@ export default class CountriesService{
 
     setCountries(){
             localStorage.setItem("countries",angular.toJson(this.countries));
-    
     }        
 
     }

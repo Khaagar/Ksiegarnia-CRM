@@ -27,8 +27,7 @@ export default class StoragesService{
 
     setStorages(){
             localStorage.setItem("storages",angular.toJson(this.storages));
-    
-    }        
-
+    }   
+         
     }
 

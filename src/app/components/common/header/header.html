@@ -1,72 +1,82 @@
-<div layout="row" style="margin-top:5px">
+<div layout="row">
   <div layout="column" layout-align="left center" flex="10">
-    <h3><span ng-init="name='bookstore'" ng-bind="header.translate([name])"></h3>
-    
+    <h2><span ng-init="name='bookstore'" ng-bind="header.translate([name])"></h2>
 </div>
 
-
+<!--FAB TOOLBAR DO MENU-->
       <md-fab-toolbar md-open="header.menu.isOpen" flex="50" md-direction="right">
-      <md-fab-trigger class="align-with-text">
-          <md-button aria-label="menu" class="md-warn md-fab" ng-click="header.showMenuPanel()">
-          <md-icon>menu</md-icon>
-          </md-button>
-      </md-fab-trigger>
-      <md-toolbar>
-        <md-fab-actions class="md-toolbar-tools toolbar-fill">
-          <md-button aria-label="menu" class="md-icon-button" ng-click="header.hideMenuPanel()">
-          <md-icon>menu</md-icon>
-          </md-button>
-          <md-button  aria-label="home" ui-sref="home">
-            <span ng-init="name='home'" ng-bind="header.translate([name])"></span>
+        <md-fab-trigger class="align-with-text">
+            <md-button aria-label="menu" class="md-warn md-fab" ng-click="header.showMenuPanel()">
+            <md-icon>menu</md-icon>
+            </md-button>
+        </md-fab-trigger>
+        <md-toolbar>
+          <md-fab-actions class="md-toolbar-tools toolbar-fill">
+            <md-button aria-label="menu" class="md-icon-button" ng-click="header.hideMenuPanel()">
+            <md-icon>menu</md-icon>
+            </md-button>
+            <md-button  aria-label="home" ui-sref="home">
+              <span ng-init="name='home'" ng-bind="header.translate([name])"></span>
       </md-button>
-      <md-button  aria-label="manage" ui-sref="manage">
-        <span ng-init="name='manage'" ng-bind="header.translate([name])"></span>
-      </md-button>
-      <md-button  aria-label="#"ui-sref="#">
-        <span ng-init="name='#'" ng-bind="header.translate([name])"></span>
-      </md-button>
-        </md-fab-actions>
-      </md-toolbar>
-    </md-fab-toolbar>
-
-  <md-content layout="row" layout-align="end end" flex="30">
-    <md-fab-toolbar md-open="header.login.isOpen"  md-direction="left">
-      <md-fab-trigger class="align-with-text">
-        <span class="user-out" ng-bind="header.getUser()"></span>
-        <md-button aria-label="menu" class="md-warn md-fab" ng-click="header.showLoginPanel()">
-          <md-icon>account_circle</md-icon>
+      <div layout="row" ng-if=header.getUser()!=='guest'>
+        <md-button aria-label="manage" ui-sref="manage">
+          <span ng-init="name='manage'" ng-bind="header.translate([name])"></span>
         </md-button>
-      </md-fab-trigger>
-      <md-toolbar ng-if="header.getUser()=='Guest'">
-        <md-fab-actions class="md-toolbar-tools">
-          <form layout="row" ng-submit="header.authorizeUser()">
-            <md-input-container class="login-input">
-              <label><md-icon>account_circle</md-icon></label>
-              <input ng-model="header.username" oninvalid="this.setCustomValidity('Login jest wymagany!')" oninput="setCustomValidity('')">
-            </md-input-container>
-            <md-input-container class="login-input">
-              <label><md-icon>lock</md-icon></label>
-              <input type="password" ng-model="header.password" oninvalid="this.setCustomValidity('Hasło jest wymagane!')" oninput="setCustomValidity('')">
-            </md-input-container>
-            <md-button aria-label="login" type="submit" ng-init="name='login'" ng-bind="header.translate([name])"></md-button>
-          </form>
-        </md-fab-actions>
+        <md-button aria-label="#" ui-sref="#">
+          <span ng-init="name='#'" ng-bind="header.translate([name])"></span>
+        </md-button>
+      </div>
+      </md-fab-actions>
       </md-toolbar>
-      
-      <md-toolbar ng-if="header.getUser()!=='Guest'" layout-align="space-around center" layout="row">
-        <md-fab-actions layout="column" layout-align="center center">
-            <span layout-align="start start"class="user-in" ng-bind="header.getUser()"></span>
-            <span layout-align="end end" ng-bind="header.clock | date : 'HH:mm:ss'"></span>
-        </md-fab-actions>
-        <md-fab-actions>
-            <md-button layout-align="end center"aria-label="logout" ng-init="name='logout'" ng-bind="header.translate([name])" ng-click="header.logout()"></md-button>
-        </md-fab-actions>
-      </md-toolbar>
-    </md-fab-toolbar>
-  </md-content>
+      </md-fab-toolbar>
 
-  <md-content class="md-warn" layout="row"layout-align="center center" flex="10">
-      <md-button class=" md-icon-button" ng-click="header.changeLanguage('PL')">PL</md-button>
-      <md-button class=" md-icon-button" ng-click="header.changeLanguage('EN')">EN</md-button>
-    </md-content>
-</div>
+<!--FAB-TOOLBAR DO LOGOWANIA-->
+      <md-content layout="row" layout-align="end end" flex="30">
+        <md-fab-toolbar md-open="header.login.isOpen" md-direction="left" style="min-width: 100%">
+          <md-fab-trigger class="align-with-text">
+            <span ng-if="header.getUser()=='guest'" class="user-out" ng-bind="header.translate([header.getUser()])"></span>
+            <span ng-if="header.getUser()!=='guest'" class="user-out" ng-bind="header.getUser()"></span>
+            <md-button aria-label="menu" class="md-warn md-fab" ng-click="header.showLoginPanel()">
+              <md-icon>account_circle</md-icon>
+            </md-button>
+          </md-fab-trigger>
+
+<!--WYŚWIETLANIE TOOLBARA PRZY NIE ZALOGOWANYM UŻYTKOWNIKU-->
+          <md-toolbar ng-if="header.getUser()=='guest'">
+            <md-fab-actions class="md-toolbar-tools">
+              <form layout="row" ng-submit="header.authorizeUser()">
+                <md-input-container class="login-input">
+                  <label><md-icon>account_circle</md-icon></label>
+                  <input ng-model="header.username" oninvalid="this.setCustomValidity('Login jest wymagany!')" oninput="setCustomValidity('')">
+                </md-input-container>
+                <md-input-container class="login-input">
+                  <label><md-icon>lock</md-icon></label>
+                  <input type="password" ng-model="header.password" oninvalid="this.setCustomValidity('Hasło jest wymagane!')" oninput="setCustomValidity('')">
+                </md-input-container>
+                <md-button aria-label="login" type="submit" ng-init="name='login'" ng-bind="header.translate([name])"></md-button>
+              </form>
+            </md-fab-actions>
+          </md-toolbar>
+
+<!--WYŚWIETLANIE TOOLBARA PRZY ZALOGOWANYM UŻYTKOWNIKU-->
+          <md-toolbar ng-if="header.getUser()!=='guest'" layout="row" layout-align="space-between center">
+            <md-fab-actions layout="row" layout-align="space-around start" style="margin-left:12px">
+              <span class="user-in" ng-bind="header.translate(['greeting'])+' '+header.getUser()+'!'"></span>
+            </md-fab-actions>
+            <md-fab-actions layout="column" layout-align="center center">
+              <small><span ng-bind="header.clock | date : 'dd-MM-yyyy'"></span></small>
+              <small><span ng-bind="header.clock | date : 'HH:mm'"></span></small>
+            </md-fab-actions>
+            <md-fab-actions layout="row" layout-align="end end">
+              <md-button aria-label="logout" ng-init="name='logout'" ng-bind="header.translate([name])" ng-click="header.logout()"></md-button>
+            </md-fab-actions>
+          </md-toolbar>
+        </md-fab-toolbar>
+      </md-content>
+
+<!--PRZYCISKI ZMIANY JĘZYKÓW-->
+      <md-content class="md-warn" layout="row" layout-align="center center" flex="10">
+        <md-button class=" md-icon-button" ng-click="header.changeLanguage('PL')">PL</md-button>
+        <md-button class=" md-icon-button" ng-click="header.changeLanguage('EN')">EN</md-button>
+      </md-content>
+  </div>

@@ -1,12 +1,14 @@
 export default class ManageController{
-    constructor(ManageService,TranslateService,$mdDialog,UpdateService,$rootScope,LoginService){
-        this.ManageService = ManageService;
+    constructor(TabsService,TranslateService,$mdDialog,UpdateService,$rootScope,LoginService, $timeout){
+        this.TabsService = TabsService;
         this.TranslateService = TranslateService;
         this.$mdDialog = $mdDialog;
         this.UpdateService = UpdateService;
         this.LoginService = LoginService;
         this.$rootScope = $rootScope;
-        this.tabs = this.ManageService.getTabs();
+        this.$timeout = $timeout;
+
+        this.tabs = this.TabsService.getTabs();
         this.data = [];
         this.columnHeaders = [];
         this.newItem = [];
@@ -16,8 +18,14 @@ export default class ManageController{
         }
     
     getData(category){
-        this.data = this.UpdateService.getData(category)['data'];
-        this.columnHeaders = this.UpdateService.getData(category)['columns'];
+        var vm=this;
+        vm.$rootScope.loading=true;
+        this.$timeout(function(){ 
+            vm.$rootScope.loading=false;
+            vm.data = vm.UpdateService.getData(category)['data'];
+            vm.columnHeaders = vm.UpdateService.getData(category)['columns'];
+        },1000);
+
     }
 
     deleteItem(item,category){
@@ -53,5 +61,5 @@ export default class ManageController{
     }
 }
 
-ManageController.$inject = ['ManageService','TranslateService','$mdDialog','UpdateService','$rootScope','LoginService'];
+ManageController.$inject = ['TabsService','TranslateService','$mdDialog','UpdateService','$rootScope','LoginService', '$timeout'];
 

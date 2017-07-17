@@ -1,10 +1,11 @@
 export default class HomeController{
     
-    constructor(UpdateService,$mdDialog,TranslateService,$rootScope){
+    constructor(UpdateService,$mdDialog,TranslateService,$rootScope,$timeout){
         this.$mdDialog=$mdDialog;
         this.UpdateService = UpdateService;
         this.TranslateService = TranslateService;
         this.$rootScope = $rootScope;
+        this.$timeout = $timeout;
         this.books = [];
         this.columns = [];
         this.getData("books");
@@ -27,14 +28,18 @@ export default class HomeController{
     }
     
     getData(category){
-
-        this.books=this.UpdateService.getData(category)['data'];
-        this.columns=this.UpdateService.getData(category)['columns'];
+        var vm=this;
+        vm.$rootScope.loading=true;
+        this.$timeout(function(){ 
+            vm.$rootScope.loading=false;
+            vm.books = vm.UpdateService.getData(category)['data'];
+            vm.columnHeaders = vm.UpdateService.getData(category)['columns'];
+        },1000);
     }
     translate(word){
         return this.TranslateService.translate([word])[0]['value'];
     }
 
 }
-HomeController.$inject = ['UpdateService','$mdDialog','TranslateService','$rootScope'];
+HomeController.$inject = ['UpdateService','$mdDialog','TranslateService','$rootScope','$timeout'];
 
