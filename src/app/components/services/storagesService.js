@@ -1,6 +1,6 @@
-export default class StoragesService{
-    
-    constructor(){
+export default class StoragesService {
+
+    constructor() {
         this.storages = [
             {
                 "id": 0,
@@ -25,9 +25,8 @@ export default class StoragesService{
         ];
     }
 
-    setStorages(){
-            localStorage.setItem("storages",angular.toJson(this.storages));
-    }   
-         
+    setStorages() {
+        localStorage.setItem("storages", angular.toJson(this.storages));
     }
+}
 

@@ -193,20 +193,20 @@ export default class TranslateService {
                 "name":"guest",
                 "PL":"Gość",
                 "EN":"Guest"
-            }
+            },
         ];
     }
 
     translate(words) {
         this.translatedWords=[];
         for (var i=0; i<words.length;i++) {
-            this.translatedWords.push(this.iterateVocabulary(words[i]));
+            this.translatedWords.push(this.searchInVocabulary(words[i]));
         }
         return this.translatedWords;
     }
 
 
-    iterateVocabulary(word){
+    searchInVocabulary(word){
         this.tempTranslate = [];
         for (var j=0; j<this.vocabulary.length;j++) {
                 if (word == this.vocabulary[j]['name']) {
@@ -216,8 +216,7 @@ export default class TranslateService {
                 });
                 }
             }
-            return this.tempTranslate[0];
-            
+            return this.tempTranslate[0];    
     }
 }
 

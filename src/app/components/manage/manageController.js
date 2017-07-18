@@ -20,12 +20,12 @@ export default class ManageController{
     getData(category){
         var vm=this;
         vm.$rootScope.loading=true;
+        vm.delay = Math.floor((Math.random()*2500)+500);
         this.$timeout(function(){ 
             vm.$rootScope.loading=false;
             vm.data = vm.UpdateService.getData(category)['data'];
             vm.columnHeaders = vm.UpdateService.getData(category)['columns'];
-        },1000);
-
+        },vm.delay);
     }
 
     deleteItem(item,category){

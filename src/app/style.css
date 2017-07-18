@@ -67,10 +67,3 @@ transform: translate3d(-50%, 0, 0);
 .indicator{
     height:400px;
 }
-
-.content {
-  min-height: calc(100vh - 70px);
-}
-.footer {
-  height: 50px;
-}

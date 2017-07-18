@@ -4,28 +4,23 @@
       <div class="md-toolbar-tools">
         <h2><span ng-init="name='details'" ng-bind="details.translate([name])"></h2>
         <span flex></span>
-          <md-button class="md-icon-button" ng-click="details.cancel()">
-          <md-icon>close</md-icon>
-        </md-button>
+          <md-button class="md-icon-button" ng-click="details.cancel()"><md-icon>close</md-icon></md-button>
       </div>
     </md-toolbar>
     <md-dialog-content layout="row">
-      <div layout="column"  flex="50" layout-padding layout-wrap layout-fill style="padding-bottom: 32px; padding-top: 32px" ng-cloak>
-       <md-whiteframe  layout-align="start start" ng-if="key['name']!='id' && key['name']!='cover'" ng-repeat="key in details.columns" class="md-whiteframe-5dp" flex-sm="17" flex-gt-sm="17" flex-gt-md="17" layout layout-align="center center">
-    <span ng-bind="details.translate(key['name'])"></span><span>:&nbsp</span><strong ng-bind="details.book[key['name']]"></strong>
-      </md-whiteframe>
+      <div layout="column" flex="50" layout-padding layout-wrap layout-fill style="padding-bottom: 32px; padding-top: 32px" ng-cloak>
+        <md-whiteframe layout-align="start start" ng-if="key['name']!='id' && key['name']!='cover'" ng-repeat="key in details.columns"
+          class="md-whiteframe-5dp" flex-sm="17" flex-gt-sm="17" flex-gt-md="17" layout layout-align="center center">
+          <span ng-bind="details.translate(key['name'])"></span><span>:&nbsp</span><strong ng-bind="details.book[key['name']]"></strong>
+        </md-whiteframe>
       </div>
       <div layout="column" flex="50" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
-        <img class="cover" ng-src="{{details.book.cover}}" class="md-card-image" alt="image caption" >
+        <img class="cover" ng-src="{{details.book.cover}}" class="md-card-image" alt="image caption">
       </div>
     </md-dialog-content>
-
     <md-dialog-actions layout="row">
-
       <span flex></span>
-
-      <md-button ng-init="name='close'" ng-bind="details.translate(name)"ng-click="details.cancel()" style="margin-right:17px;" >
-      </md-button>
+      <md-button ng-init="name='close'" ng-bind="details.translate(name)" ng-click="details.cancel()" style="margin-right:17px;"></md-button>
     </md-dialog-actions>
   </form>
 </md-dialog>

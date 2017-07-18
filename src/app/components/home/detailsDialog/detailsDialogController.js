@@ -5,14 +5,13 @@ export default class DetailsDialogController{
         this.$mdDialog=$mdDialog;
         this.TranslateService = TranslateService;
         this.columns=columns;
-        console.log(columns)
-        
     }
+    
     cancel(){
         this.$mdDialog.cancel();
     }
 
-        translate(word){
+    translate(word){
         return this.TranslateService.translate([word])[0]['value'];
     }
 

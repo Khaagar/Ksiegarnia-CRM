@@ -1,5 +1,5 @@
-export default class TabsService{
-    constructor(){
+export default class TabsService {
+    constructor() {
         this.tabs = [
             {
                 "name": "authors"
@@ -22,8 +22,7 @@ export default class TabsService{
         ];
     }
 
-    getTabs(){
+    getTabs() {
         return this.tabs;
     }
-
-    }
+}

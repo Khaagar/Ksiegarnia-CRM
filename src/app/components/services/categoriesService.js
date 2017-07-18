@@ -33,6 +33,5 @@ export default class CategoriessService{
     setCategories(){
             localStorage.setItem("categories",angular.toJson(this.categories));
     }        
-
-    }
+}
 

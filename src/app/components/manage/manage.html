@@ -10,12 +10,10 @@
         </md-content>
         <!--WYŚWIETLANIE ZAWARTOŚCI TABA-->
         <md-content ng-if="!manage.$rootScope.loading">
-          <md-content layout="row" flex="50" layout-align="center  center" flex>
-            <md-button class="md-fab md-primary" ng-click="manage.editDialog($event,-1,manage.columnHeaders,tab['name'])" ng-disabled="manage.checkLoggedUser()">
+          <md-content layout="row" layout-align="center start" style="padding-top:30px">
+            <md-button class="md-fab md-mini md-primary" ng-click="manage.editDialog($event,-1,manage.columnHeaders,tab['name'])" ng-disabled="manage.checkLoggedUser()">
               <md-icon>add</md-icon>
             </md-button>
-          </md-content>
-          <md-content layout="row" layout-align="center start" style="padding-top:30px">
             <table>
               <tr class="table-header">
                 <th ng-repeat="key in manage.columnHeaders"> <span ng-if="key['name']!='id'" ng-bind="manage.translate(key['name'])"></span></th>

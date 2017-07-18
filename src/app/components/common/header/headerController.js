@@ -1,11 +1,9 @@
 export default class HeaderController{
-    constructor($animate,$rootScope,TranslateService,LoginService,$interval){
+    constructor($rootScope,TranslateService,LoginService,$interval){
         let vm=this;
-        this.$animate=$animate;
         this.$rootScope=$rootScope;
         this.TranslateService = TranslateService;
         this.LoginService = LoginService;
-        this.$animate.enabled(true);
 
         this.username;
         this.password;
@@ -24,7 +22,7 @@ export default class HeaderController{
 
     tick(){
             this.clock=new Date();
-        }
+    }
 
     changeLanguage(language){
         this.$rootScope.language=language;
@@ -92,5 +90,5 @@ export default class HeaderController{
     
 }
 
-HeaderController.$inject = ['$animate','$rootScope','TranslateService','LoginService','$interval'];
+HeaderController.$inject = ['$rootScope','TranslateService','LoginService','$interval'];
 

@@ -15,15 +15,10 @@ import EditDialogController from './components/manage/editDialog/editDialogContr
 //COMPONENTS
 import HeaderComponent from './components/common/header/headerComponent';
 import HomeComponent from './components/home/homeComponent';
-import TableComponent from './components/table/tableComponent';
 import ManageComponent from './components/manage/manageComponent';
 
 
 //SERVICES
-import HomeService from './components/home/homeService';
-import HeaderService from './components/common/header/headerService';
-import TableService from './components/table/tableService';
-import TabsService from './components/services/tabsService';
 import UpdateService from './components/services/updateService';
     import BooksService from './components/services/booksService';
     import AuthorsService from './components/services/authorsService'
@@ -33,6 +28,7 @@ import UpdateService from './components/services/updateService';
     import CoversService from './components/services/coversService';
 import TranslateService from './components/services/translateService';
 import LoginService from './components/services/loginService';
+import TabsService from './components/services/tabsService'
 
 
 export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
@@ -61,12 +57,9 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                     
                     .component('myHeader', HeaderComponent)
                     .component('myHome', HomeComponent)
-                    .component('myTable', TableComponent)
                     .component('myManage',ManageComponent)
 
-                    .service('HomeService',HomeService)
-                    .service('HeaderService',HeaderService)
-                    .service('TableService',TableService)
+
                     .service('TabsService',TabsService)
                     .service('UpdateService',UpdateService)
                         .service('BooksService',BooksService)
@@ -85,7 +78,6 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                         });
 
                         $rootScope.loading = false;
-
 
                         if ($rootScope.language==undefined){
                             $rootScope.language="PL";

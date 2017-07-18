@@ -15,7 +15,6 @@ export default class EditDialogController {
     }
 
     submit(item) {
-        console.log(this.id);
         if (this.id === -1){
             this.data = JSON.parse(localStorage.getItem(this.tabName));
             this.data.push(item);
@@ -30,7 +29,6 @@ export default class EditDialogController {
     }
 
     translate(word){
-        console.log('slowo: ',word,' wartosc: ',this.TranslateService.translate([word])[0]['value'] )
         return this.TranslateService.translate([word])[0]['value'];
     }
 
