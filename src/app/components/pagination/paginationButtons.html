@@ -1,0 +1,36 @@
+<div class="pagination" ng-if="1 < pages.length || !autoHide" layout="row" layout-align="center center">
+    <md-button 
+        class="md-icon-button current-page" 
+        ng-if="directionLinks"
+        ng-disabled="pagination.current==1" 
+        ng-click="setCurrent(1)">
+        &laquo;
+    </md-button>
+    <md-button 
+        class="md-icon-button current-page" 
+        ng-if="directionLinks" 
+        ng-disabled="pagination.current==1" 
+        ng-click="setCurrent(pagination.current - 1)">
+        &lsaquo;
+    </md-button>
+    <md-button
+        ng-repeat="pageNumber in pages track by tracker(pageNumber, $index)"
+        class="{{pagination.current==pageNumber ? 'current-page':'md-mini' }} + md-fab md-primary md-hue-2" 
+        ng-click="setCurrent(pageNumber)">
+        <span ng-bind="pageNumber"/>
+    </md-button>
+    <md-button 
+        class="md-icon-button  current-page"  
+        ng-if="directionLinks" 
+        ng-disabled="pagination.current==pagination.last"
+        ng-click="setCurrent(pagination.current + 1)">
+        &rsaquo;
+    </md-button>
+    <md-button 
+        class="md-icon-button current-page"  
+        ng-if="directionLinks" 
+        ng-disabled="pagination.current==pagination.last" 
+        ng-click="setCurrent(pagination.last)">
+        &raquo;
+    </md-button>
+</div>

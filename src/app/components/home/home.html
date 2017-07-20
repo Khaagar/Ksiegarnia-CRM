@@ -7,7 +7,7 @@
         <md-card md-theme="default" >
             <md-card-title layout="column" layout-align="space-between">
                 <md-card-title-text>
-                    <span class="md-headline no-wrap-text" ng-bind="book.title"></span>
+                    <span class="md-headline no-wrap-text" ><md-icon ng-if="home.isHot(book)" class="md-warn" >whatshot</md-icon><span ng-bind="book.title"></span></span>
                     <span class="md-subhead" ng-bind="book.author">Large</span>
                     <md-divider></md-divider>
                 </md-card-title-text>

@@ -193,7 +193,7 @@ export default class TranslateService {
                 "name":"guest",
                 "PL":"Gość",
                 "EN":"Guest"
-            },
+            }
         ];
     }
 

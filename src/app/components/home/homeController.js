@@ -32,11 +32,18 @@ export default class HomeController{
         this.$timeout(function(){ 
             vm.$rootScope.loading=false;
             vm.books = vm.UpdateService.getData(category)['data'];
-            vm.columnHeaders = vm.UpdateService.getData(category)['columns'];
+            vm.columns = vm.UpdateService.getData(category)['columns'];
         },vm.delay);
     }
     translate(word){
         return this.TranslateService.translate([word])[0]['value'];
+    }
+
+    isHot(book){
+        this.hotBooks = this.UpdateService.getData('hotBooks')['data'];
+        if (this.hotBooks.find(x=>x['id']==book['id'])){
+            return true;
+        } else return false;
     }
 
 }

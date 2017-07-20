@@ -2,7 +2,8 @@ import angular from 'angular';
 import ngMaterial from 'angular-material';
 import LocalStorageModule from 'angular-local-storage';
 import uirouter from '@uirouter/angularjs';
-
+import angdragdrop from 'angular-native-dragdrop';
+import dirPagination from 'angular-utils-pagination';
 
 import '../../node_modules/angular-material/angular-material.css';
 import './style.css';
@@ -29,9 +30,10 @@ import UpdateService from './components/services/updateService';
 import TranslateService from './components/services/translateService';
 import LoginService from './components/services/loginService';
 import TabsService from './components/services/tabsService'
+import HotBooksService from './components/services/hotBooksService';
 
 
-export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
+export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter, angdragdrop, dirPagination])
 
 .config(function($stateProvider, $urlRouterProvider) {
      
@@ -51,6 +53,9 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
 }).config(function($mdIconProvider) {
   $mdIconProvider
     .defaultIconSet('./icons/mdi.svg');
+}).config(function(paginationTemplateProvider) {
+
+    paginationTemplateProvider.setString(require('./components/pagination/paginationButtons.html'));
 })
                     .controller('detailsDialogController', DetailsDialogController)
                     .controller('editDialogController',EditDialogController)
@@ -70,6 +75,7 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter])
                         .service('CoversService',CoversService)
                     .service('TranslateService',TranslateService)
                     .service('LoginService',LoginService)
+                    .service('HotBooksService',HotBooksService)
                     .run(function(UpdateService,$rootScope,$transitions){
                         
                         $transitions.onStart( { to: 'manage' }, function(trans) {

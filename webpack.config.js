@@ -59,6 +59,10 @@ module.exports = {
       inline: true, //allows us to run automatic live code update
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            "$": "jquery",
+            "window.jQuery": "jquery"
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html'

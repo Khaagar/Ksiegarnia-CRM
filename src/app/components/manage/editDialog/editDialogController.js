@@ -1,9 +1,10 @@
 export default class EditDialogController {
 
-    constructor($mdDialog, id, columnHeaders, tabName, UpdateService, TranslateService) {
+    constructor($mdDialog, id, columnHeaders, tabName, tpl, UpdateService, TranslateService) {
         this.columnHeaders = columnHeaders;
         this.$mdDialog = $mdDialog;
         this.tabName = tabName;
+        this.tpl = tpl;
         this.UpdateService = UpdateService;
         this.TranslateService = TranslateService;
         this.id = id;
@@ -15,13 +16,15 @@ export default class EditDialogController {
     }
 
     submit(item) {
-        if (this.id === -1){
+        if ((this.tpl === 'add')||(this.tpl === 'addBook')){
+            console.log(item);
             this.data = JSON.parse(localStorage.getItem(this.tabName));
             this.data.push(item);
             this.data[this.data.length - 1]['id'] = this.data[this.data.length - 2]['id'] + 1;
-        }else{
+        }
+        if(this.tpl ==='edit'){
             this.data = JSON.parse(localStorage.getItem(this.tabName));
-            this.data[this.id] = item;
+            this.data[this.tempItem['id']] = item;
         }
 
         localStorage.setItem(this.tabName, angular.toJson(this.data));
@@ -32,7 +35,8 @@ export default class EditDialogController {
         return this.TranslateService.translate([word])[0]['value'];
     }
 
-}
+    }
 
-EditDialogController.$inject = ['$mdDialog', 'id', 'columnHeaders', 'tabName', 'UpdateService', 'TranslateService'];
+
+EditDialogController.$inject = ['$mdDialog', 'id', 'columnHeaders', 'tabName','tpl', 'UpdateService', 'TranslateService'];
 

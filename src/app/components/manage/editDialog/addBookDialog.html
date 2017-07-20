@@ -1,0 +1,86 @@
+<md-dialog aria-label="Add" style="min-width:25%">
+  <form ng-submit="edit.submit(edit.tempItem)">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2 ng-init="name='add'" ng-bind="edit.translate(name)"></h2>
+
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="edit.cancel()">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content layout="column">
+      <div layout="column" flex="50" layout-padding layout-wrap layout-fill style="padding-bottom: 32px; padding-top: 32px" ng-cloak>
+        <md-input-container>
+          <label ng-bind="edit.translate(['title'])"></label>
+            <input type="text"ng-model="edit.tempItem['title']" pattern=".{1,255}" required oninvalid="this.setCustomValidity('Wprowadź od 1 do 255 znaków.')"
+            oninput="setCustomValidity('')">
+        </md-input-container>
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['author'])"></label>
+            <md-select ng-model="edit.tempItem['author']" ng-init="authors=edit.UpdateService.getData('authors')['data']" required>
+              <md-option ng-click="console.log(authors)" ng-repeat="item in authors" value="{{item['name']}}">
+                {{item['name']}}
+              </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['ISBN'])"></label>
+            <input type="text"ng-model="edit.tempItem['ISBN']" pattern=".{1,255}" required oninvalid="this.setCustomValidity('Wprowadź od 1 do 255 znaków.')"
+            oninput="setCustomValidity('')">
+        </md-input-container>        
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['category'])"></label>
+            <md-select ng-model="edit.tempItem['category']" ng-init="categories=edit.UpdateService.getData('categories')['data']" required>
+              <md-option ng-click="console.log(categories)" ng-repeat="item in categories" value="{{item['name']}}">
+                {{item['name']}}
+              </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['storageType'])"></label>
+            <md-select ng-model="edit.tempItem['storage']" ng-init="storages=edit.UpdateService.getData('storages')['data']" required>
+              <md-option ng-click="console.log(storages)" ng-repeat="item in storages" value="{{item['name']}}">
+                {{item['name']}}
+              </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['coverType'])"></label>
+            <md-select ng-model="edit.tempItem['coverType']" ng-init="covers=edit.UpdateService.getData('covers')['data']" required>
+              <md-option ng-click="console.log(covers)" ng-repeat="item in covers" value="{{item['name']}}">
+                {{item['name']}}
+              </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['price'])"></label>
+            <input type="number" ng-model="edit.tempItem['price']" min="0" max="999" required>
+        </md-input-container>   
+
+        <md-input-container>
+          <label ng-bind="edit.translate(['cover'])"></label>
+            <input type="text"ng-model="edit.tempItem['cover']" required>
+        </md-input-container>  
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="edit.cancel()" style="margin-left:17px;">
+        <span ng-init="name='cancel'" ng-bind="edit.translate(name)"></span>
+      </md-button>
+      <span flex></span>
+      <md-button type="submit" style="margin-right:17px;">
+        <span ng-init="name='ok'" ng-bind="edit.translate(name)"></span>
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
