@@ -1,4 +1,4 @@
-<md-dialog aria-label="Add" style="min-width:25%">
+<md-dialog aria-label="Add" style="min-width:40%">
   <form ng-submit="edit.submit(edit.tempItem)">
     <md-toolbar>
       <div class="md-toolbar-tools">
@@ -17,7 +17,6 @@
             <input type="text"ng-model="edit.tempItem['title']" pattern=".{1,255}" required oninvalid="this.setCustomValidity('Wprowadź od 1 do 255 znaków.')"
             oninput="setCustomValidity('')">
         </md-input-container>
-
         <md-input-container>
           <label ng-bind="edit.translate(['author'])"></label>
             <md-select ng-model="edit.tempItem['author']" ng-init="authors=edit.UpdateService.getData('authors')['data']" required>
@@ -26,13 +25,11 @@
               </md-option>
             </md-select>
         </md-input-container>
-
         <md-input-container>
           <label ng-bind="edit.translate(['ISBN'])"></label>
             <input type="text"ng-model="edit.tempItem['ISBN']" pattern=".{1,255}" required oninvalid="this.setCustomValidity('Wprowadź od 1 do 255 znaków.')"
             oninput="setCustomValidity('')">
         </md-input-container>        
-
         <md-input-container>
           <label ng-bind="edit.translate(['category'])"></label>
             <md-select ng-model="edit.tempItem['category']" ng-init="categories=edit.UpdateService.getData('categories')['data']" required>
@@ -41,7 +38,6 @@
               </md-option>
             </md-select>
         </md-input-container>
-
         <md-input-container>
           <label ng-bind="edit.translate(['storageType'])"></label>
             <md-select ng-model="edit.tempItem['storage']" ng-init="storages=edit.UpdateService.getData('storages')['data']" required>
@@ -50,7 +46,6 @@
               </md-option>
             </md-select>
         </md-input-container>
-
         <md-input-container>
           <label ng-bind="edit.translate(['coverType'])"></label>
             <md-select ng-model="edit.tempItem['coverType']" ng-init="covers=edit.UpdateService.getData('covers')['data']" required>
@@ -59,20 +54,16 @@
               </md-option>
             </md-select>
         </md-input-container>
-
         <md-input-container>
           <label ng-bind="edit.translate(['price'])"></label>
             <input type="number" ng-model="edit.tempItem['price']" min="0" max="999" required>
         </md-input-container>   
-
         <md-input-container>
           <label ng-bind="edit.translate(['cover'])"></label>
             <input type="text"ng-model="edit.tempItem['cover']" required>
         </md-input-container>  
-
       </div>
     </md-dialog-content>
-
     <md-dialog-actions layout="row">
       <md-button ng-click="edit.cancel()" style="margin-left:17px;">
         <span ng-init="name='cancel'" ng-bind="edit.translate(name)"></span>

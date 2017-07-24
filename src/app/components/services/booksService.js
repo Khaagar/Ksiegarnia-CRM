@@ -66,7 +66,7 @@ export default class BooksService{
                 "storageType": "DVD",
                 "coverType": "typ",
                 "price": 99.99,
-                "cover": "http://ecsmedia.pl/c/pan-lodowego-ogrodu-tom-4-b-iext43252937.jpg"
+                "cover": "https://image.ceneo.pl/data/products/14709985/i-pan-lodowego-ogrodu-tom-2-wyd-2.jpg"
             },
             {
                 "id": 6,

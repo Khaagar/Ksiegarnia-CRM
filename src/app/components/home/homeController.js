@@ -12,7 +12,7 @@ export default class HomeController{
     }
     bookDetails(ev, book){
             this.$mdDialog.show({
-                template: require('./detailsDialog/detailsDialog.html'),
+                template: require('../detailsDialog/detailsDialog.html'),
                 controller: 'detailsDialogController',
                 controllerAs: 'details',
                 parent: angular.element(document.body),
@@ -45,6 +45,8 @@ export default class HomeController{
             return true;
         } else return false;
     }
+
+
 
 }
 HomeController.$inject = ['UpdateService','$mdDialog','TranslateService','$rootScope','$timeout'];

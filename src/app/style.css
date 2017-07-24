@@ -97,3 +97,30 @@ transform: translate3d(-50%, 0, 0);
     font-size: 24px;
 }
 
+my-carousel{
+    position:relative;
+}
+
+
+#carousel-switch{
+    position:absolute;
+    z-index: 9999;
+}
+
+.carousel{
+    width:100%;
+    height:340px;
+    background-color:black;
+
+}
+
+.carousel-hide{
+    height:0px;
+    transition: 2s;
+}
+
+.carousel-visible{
+    height:340px;
+    transition: 2s;
+}
+

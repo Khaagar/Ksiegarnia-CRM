@@ -1,0 +1,10 @@
+<div ng-keypress="carousel.keyPress($event)" layout-align="center end">
+    <md-button id="carousel-switch" class="md-raised md-warn" ng-click="carousel.showCarousel()">Hot books</md-button>
+    <div class="carousel {{carousel.carouselVisible ? 'carousel-visible':'carousel-hide'}}" data-ng-keydown="carousel.keyPress($event)">
+        <div layout="row" layout-align="center center">
+        <md-button ng-repeat="item in carousel.visibleItems" ng-style="{width: item.width, height: item.height}" ng-click="carousel.imageClick($event,item.book,item.name,item.layer-1)">
+            <img ng-style="{width: item.width, height: item.height}" ng-src="{{item.book.cover}}" alt="image caption" >
+        </md-button>
+        </div>
+    </div>
+</div>

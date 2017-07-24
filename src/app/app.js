@@ -17,6 +17,7 @@ import EditDialogController from './components/manage/editDialog/editDialogContr
 import HeaderComponent from './components/common/header/headerComponent';
 import HomeComponent from './components/home/homeComponent';
 import ManageComponent from './components/manage/manageComponent';
+import CarouselComponent from './components/carousel/carouselComponent';
 
 
 //SERVICES
@@ -47,8 +48,6 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter, 
     .state('manage',{
         url: '/manage',
         component: 'myManage'
-        
-
     });
 }).config(function($mdIconProvider) {
   $mdIconProvider
@@ -63,6 +62,7 @@ export default angular.module('app', [ngMaterial, LocalStorageModule, uirouter, 
                     .component('myHeader', HeaderComponent)
                     .component('myHome', HomeComponent)
                     .component('myManage',ManageComponent)
+                    .component('myCarousel',CarouselComponent)
 
 
                     .service('TabsService',TabsService)
